@@ -1,7 +1,5 @@
-﻿  main.cpp
-D:\my_projects\c++\Consloe3d\Consloe3d\main.cpp(10,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-D:\my_projects\c++\Consloe3d\Consloe3d\main.cpp(16,16): warning C4305: 'initializing': truncation from 'double' to 'float'
-D:\my_projects\c++\Consloe3d\Consloe3d\main.cpp(30,26): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+﻿  Circle.cpp
+D:\my_projects\c++\Consloe3d\Consloe3d\Circle.cpp(18,22): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
   Consloe3d.vcxproj -> D:\my_projects\c++\Consloe3d\x64\Debug\Consloe3d.exe
   'pwsh.exe' is not recognized as an internal or external command,
   operable program or batch file.
