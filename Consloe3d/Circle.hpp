@@ -7,13 +7,18 @@
 class Circle : protected GameObject {
 private:
 	int radius;
+	Vector2 bounciness;
 	int moveX = 1;
-	bool isXdirection = true;
+	Vector2 isDirection;
+
 public:
 
 	Circle(int radius, float offset);
 
 	void draw() override;
+	void setBounciness();
+
+	void handlePos() override;
 
 };
 

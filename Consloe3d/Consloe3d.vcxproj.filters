@@ -53,5 +53,8 @@
     <ClInclude Include="Vector2.hpp">
       <Filter>Source Files\Core</Filter>
     </ClInclude>
+    <ClInclude Include="Square.hpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
