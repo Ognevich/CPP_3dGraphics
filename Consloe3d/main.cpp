@@ -8,7 +8,7 @@ int main() {
 	srand(time(NULL));
 
 	Utills utills;
-    Circle circle(2,1.72);
+    Circle circle(4,1.72);
 
     while (true) {
         utills.clearGameScreen();

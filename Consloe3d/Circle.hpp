@@ -8,7 +8,7 @@ class Circle : protected GameObject {
 private:
 	int radius;
 	Vector2 bounciness;
-	int moveX = 1;
+	Vector2 move;
 	Vector2 isDirection;
 
 public:
