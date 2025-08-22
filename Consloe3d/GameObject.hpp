@@ -7,7 +7,7 @@ protected:
 	std::string gradient;
 	float yOffset;
 
-	virtual void handlePos() = 0;
+	virtual void updatePos() = 0;
 
 public:
 	GameObject(const std::string& grad = "@%#*+=-:.", float offset = 1.72f)

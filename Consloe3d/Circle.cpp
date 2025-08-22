@@ -4,11 +4,11 @@
 Circle::Circle(int radius, float offset)
     : GameObject("@%#*+=-:.", offset), radius(radius)
 {
-    setBounciness();
-    isDirection.X = 1;
-    isDirection.Y = 1;
-    move.X = bounciness.X;
-    move.Y = 1;
+    isDirection.X = rand() %3 -1;
+    isDirection.Y = rand() %3 -1;
+    pos.X = (rand() % (MAP_WIDTH - 2 * radius)) - (MAP_WIDTH / 2 - radius);
+    pos.Y = (rand() % (MAP_HEIGHT - 2 * (int)(radius / yOffset))) - (MAP_HEIGHT / 2 - (int)(radius / yOffset));
+    
 }
 
 void Circle::draw()
@@ -16,8 +16,8 @@ void Circle::draw()
     std::string frame;
     frame.reserve(MAP_HEIGHT * (MAP_WIDTH + 1));
 
-    int centerX = MAP_WIDTH / 2 + move.X;
-    int centerY = MAP_HEIGHT / 2 + move.Y;
+    int centerX = MAP_WIDTH / 2 + pos.X;
+    int centerY = MAP_HEIGHT / 2 + pos.Y;
 
     for (int i = 0; i < MAP_HEIGHT; i++) {
         for (int j = 0; j < MAP_WIDTH; j++) {
@@ -39,29 +39,22 @@ void Circle::draw()
 
     std::cout << frame;
 
-    if (isDirection.X) move.X++;
-    else move.X--;
+    if (isDirection.X) pos.X++;
+    else pos.X--;
 
-    if (isDirection.Y) move.Y++;
-    else move.Y--;
+    if (isDirection.Y) pos.Y++;
+    else pos.Y--;
 
-    handlePos();
+    updatePos();
 }
 
-
-void Circle::setBounciness()
+void Circle::updatePos()
 {
-    this->bounciness.X = (rand() % 11) - 5;
-    this->bounciness.Y = (rand() % 11) - 5;
-}
-
-void Circle::handlePos()
-{
-    if (move.X + radius >= MAP_WIDTH / 2)  isDirection.X = 0;
-    if (move.X - radius <= -(MAP_WIDTH / 2)) isDirection.X = 1;
+    if (pos.X + radius >= MAP_WIDTH / 2)  isDirection.X = 0;
+    if (pos.X - radius <= -(MAP_WIDTH / 2)) isDirection.X = 1;
 
     float scaledRadiusY = radius / yOffset;
 
-    if (move.Y + scaledRadiusY >= MAP_HEIGHT / 2) isDirection.Y = 0;
-    if (move.Y - scaledRadiusY <= -(MAP_HEIGHT / 2)) isDirection.Y = 1;
+    if (pos.Y + scaledRadiusY >= MAP_HEIGHT / 2) isDirection.Y = 0;
+    if (pos.Y - scaledRadiusY <= -(MAP_HEIGHT / 2)) isDirection.Y = 1;
 }

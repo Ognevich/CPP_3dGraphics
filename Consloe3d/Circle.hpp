@@ -8,7 +8,8 @@ class Circle : protected GameObject {
 private:
 	int radius;
 	Vector2 bounciness;
-	Vector2 move;
+	Vector2 pos;
+	Vector2 velocity;
 	Vector2 isDirection;
 
 public:
@@ -16,9 +17,8 @@ public:
 	Circle(int radius, float offset);
 
 	void draw() override;
-	void setBounciness();
 
-	void handlePos() override;
+	void updatePos() override;
 
 };
 
