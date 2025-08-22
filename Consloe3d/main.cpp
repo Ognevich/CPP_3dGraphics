@@ -9,12 +9,14 @@ int main() {
 
 	Utills utills;
     Circle circle(4,1.72);
+    Circle circle2(4, 1.72);
 
     while (true) {
         utills.clearGameScreen();
 
         circle.draw();
-        
+        circle2.draw();
+
         Sleep(30); 
     }
 

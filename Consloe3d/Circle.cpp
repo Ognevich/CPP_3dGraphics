@@ -4,11 +4,12 @@
 Circle::Circle(int radius, float offset)
     : GameObject("@%#*+=-:.", offset), radius(radius)
 {
-    isDirection.X = rand() %3 -1;
-    isDirection.Y = rand() %3 -1;
+
+    isDirection.X = (rand() % 2 == 0) ? -1 : 1;
+    isDirection.Y = (rand() % 2 == 0) ? -1 : 1;
+
     pos.X = (rand() % (MAP_WIDTH - 2 * radius)) - (MAP_WIDTH / 2 - radius);
     pos.Y = (rand() % (MAP_HEIGHT - 2 * (int)(radius / yOffset))) - (MAP_HEIGHT / 2 - (int)(radius / yOffset));
-    
 }
 
 void Circle::draw()
