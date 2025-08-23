@@ -56,5 +56,8 @@
     <ClInclude Include="Square.hpp">
       <Filter>Source Files\Engine</Filter>
     </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>Source Files\Engine</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

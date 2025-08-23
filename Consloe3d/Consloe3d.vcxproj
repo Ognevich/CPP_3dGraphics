@@ -132,6 +132,7 @@
     <ClInclude Include="config.hpp" />
     <ClInclude Include="Circle.hpp" />
     <ClInclude Include="GameObject.hpp" />
+    <ClInclude Include="Map.h" />
     <ClInclude Include="Square.hpp" />
     <ClInclude Include="Utills.hpp" />
     <ClInclude Include="Vector2.hpp" />
