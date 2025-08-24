@@ -27,9 +27,7 @@ void Circle::draw()
             float dist = sqrt(dx * dx + dy * dy);
 
             if (dist < radius) {
-                float norm = dist / radius;
-                int idx = (int)(norm * (gradient.size() - 1));
-                frame += gradient[idx];
+                frame += createGradient(radius, dist);
             }
             else {
                 frame += ' ';
@@ -37,8 +35,6 @@ void Circle::draw()
         }
         frame += '\n';
     }
-
-    std::cout << frame;
 
     if (isDirection.X) pos.X++;
     else pos.X--;
@@ -58,4 +54,11 @@ void Circle::updatePos()
 
     if (pos.Y + scaledRadiusY >= MAP_HEIGHT / 2) isDirection.Y = 0;
     if (pos.Y - scaledRadiusY <= -(MAP_HEIGHT / 2)) isDirection.Y = 1;
+}
+
+char Circle::createGradient(int radius, int dist)
+{
+    float norm = dist / radius;
+    int idx = (int)(norm * (gradient.size() - 1));
+    return gradient[idx];
 }

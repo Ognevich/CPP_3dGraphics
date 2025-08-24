@@ -2,6 +2,7 @@
 #define CONFIG_H
 #include <iostream>
 #include <time.h>
+#include <random>
 
 #define MAP_HEIGHT 30
 #define MAP_WIDTH 120

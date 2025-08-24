@@ -1,7 +1,12 @@
-﻿  main.cpp
-D:\my_projects\c++\Consloe3d\Consloe3d\main.cpp(8,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-D:\my_projects\c++\Consloe3d\Consloe3d\main.cpp(11,21): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\my_projects\c++\Consloe3d\Consloe3d\main.cpp(12,23): warning C4305: 'argument': truncation from 'double' to 'float'
+﻿  Circle.cpp
+D:\my_projects\c++\Consloe3d\Consloe3d\Circle.cpp(25,22): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\my_projects\c++\Consloe3d\Consloe3d\Circle.cpp(30,49): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\my_projects\c++\Consloe3d\Consloe3d\Circle.cpp(61,16): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  ProjectControl.cpp
+D:\my_projects\c++\Consloe3d\Consloe3d\ProjectControl.cpp(11,22): warning C4305: 'argument': truncation from 'double' to 'float'
+  main.cpp
+D:\my_projects\c++\Consloe3d\Consloe3d\main.cpp(5,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating Code...
   Consloe3d.vcxproj -> D:\my_projects\c++\Consloe3d\x64\Debug\Consloe3d.exe
   'pwsh.exe' is not recognized as an internal or external command,
   operable program or batch file.

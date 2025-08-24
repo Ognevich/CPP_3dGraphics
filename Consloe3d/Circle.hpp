@@ -1,8 +1,8 @@
 #ifndef CIRCLE_H
 #define CIRCLE_H
-#include "GameObject.hpp"
-#include "Vector2.hpp"
+#include "Objects.hpp"
 #include "config.hpp"
+#include "Vector2.hpp"
 
 class Circle : protected GameObject {
 private:
@@ -19,6 +19,7 @@ public:
 	void draw() override;
 
 	void updatePos() override;
+	char createGradient(int radius, int dist) override;
 
 };
 

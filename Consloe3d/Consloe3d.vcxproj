@@ -125,14 +125,17 @@
   <ItemGroup>
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Map.cpp" />
+    <ClCompile Include="ProjectControl.cpp" />
     <ClCompile Include="Utills..cpp" />
     <ClCompile Include="Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="config.hpp" />
     <ClInclude Include="Circle.hpp" />
-    <ClInclude Include="GameObject.hpp" />
-    <ClInclude Include="Map.h" />
+    <ClInclude Include="Objects.hpp" />
+    <ClInclude Include="Map.hpp" />
+    <ClInclude Include="ProjectControl.h" />
     <ClInclude Include="Square.hpp" />
     <ClInclude Include="Utills.hpp" />
     <ClInclude Include="Vector2.hpp" />

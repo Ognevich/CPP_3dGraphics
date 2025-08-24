@@ -22,6 +22,12 @@
     <Filter Include="Source Files\Core">
       <UniqueIdentifier>{2bfa30ba-56f0-40c0-98bc-fcd35ea2b42b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Engine\Objects">
+      <UniqueIdentifier>{cb97cd74-d7dc-4935-8330-061e8ac2cd52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Controler">
+      <UniqueIdentifier>{61a98bb1-8c0b-4dbe-a393-e0cd322c248e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -33,31 +39,40 @@
     <ClCompile Include="Vector2.cpp">
       <Filter>Source Files\Core</Filter>
     </ClCompile>
-    <ClCompile Include="Circle.cpp">
+    <ClCompile Include="Map.cpp">
       <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Circle.cpp">
+      <Filter>Source Files\Engine\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="ProjectControl.cpp">
+      <Filter>Source Files\Engine\Controler</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="config.hpp">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="Utills.hpp">
       <Filter>Source Files\Utills</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject.hpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Circle.hpp">
-      <Filter>Source Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Vector2.hpp">
       <Filter>Source Files\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Square.hpp">
+    <ClInclude Include="Map.hpp">
       <Filter>Source Files\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Map.h">
-      <Filter>Source Files\Engine</Filter>
+    <ClInclude Include="Circle.hpp">
+      <Filter>Source Files\Engine\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects.hpp">
+      <Filter>Source Files\Engine\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="config.hpp">
+      <Filter>Source Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="ProjectControl.h">
+      <Filter>Source Files\Engine\Controler</Filter>
+    </ClInclude>
+    <ClInclude Include="Square.hpp">
+      <Filter>Source Files\Engine\Objects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

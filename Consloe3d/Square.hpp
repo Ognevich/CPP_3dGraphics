@@ -1,6 +1,6 @@
 #ifndef SQUARE_H
 #define SQUARE_H
-#include "GameObject.hpp"
+#include "Objects.hpp"
 
 
 class Square : protected GameObject {
