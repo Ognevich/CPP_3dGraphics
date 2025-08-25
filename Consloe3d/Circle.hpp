@@ -3,6 +3,7 @@
 #include "Objects.hpp"
 #include "config.hpp"
 #include "Vector2.hpp"
+#include <vector>
 
 class Circle : protected GameObject {
 private:
@@ -16,11 +17,15 @@ public:
 
 	Circle(int radius, float offset);
 
-	void draw() override;
+	void updateObjectPos() override;
+	void saveObjectCoordToVector() override;
+	
+	char createGradient(int radius, float dist) override;
 
-	void updatePos() override;
-	char createGradient(int radius, int dist) override;
+	int getObjectCoordVectorLenght() override;
+	bool isObjectCoordVectorValue(int xPos, int yPos) override;
 
+	const std::vector<Vector2>& getObjectCoords() const override;
 };
 
 #endif

@@ -1,15 +1,23 @@
 #include "Map.hpp"
 
-void Map::showMap()
+Map::Map()
 {
-	for (int yPos = 0; yPos < MAP_HEIGHT; yPos++) {
-		for (int xPos = 0; xPos < MAP_WIDTH; xPos++) {
-			std::cout << map[yPos][xPos];
-		}
-		std::cout << "\n";
-	}
+	initMap();
 }
 
+void Map::showMap()
+{
+    std::string frame;
+
+    for (int yPos = 0; yPos < MAP_HEIGHT; yPos++) {
+        for (int xPos = 0; xPos < MAP_WIDTH; xPos++) {
+            frame += map[yPos][xPos];
+        }
+        frame += "\n";
+    }
+
+    std::cout << frame;
+}
 void Map::initMap()
 {
 	for (int yPos = 0; yPos < MAP_HEIGHT; yPos++) {

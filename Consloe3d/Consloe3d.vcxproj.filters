@@ -68,7 +68,7 @@
     <ClInclude Include="config.hpp">
       <Filter>Source Files\Core</Filter>
     </ClInclude>
-    <ClInclude Include="ProjectControl.h">
+    <ClInclude Include="ProjectControl.hpp">
       <Filter>Source Files\Engine\Controler</Filter>
     </ClInclude>
     <ClInclude Include="Square.hpp">

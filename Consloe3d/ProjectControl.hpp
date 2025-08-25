@@ -9,6 +9,8 @@ class ProjectControl {
 private:
 	Map map;
 public:
+	ProjectControl();
+
 	void init();
 	void run();
 	void shutdown();

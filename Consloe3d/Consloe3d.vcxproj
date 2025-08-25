@@ -135,7 +135,7 @@
     <ClInclude Include="Circle.hpp" />
     <ClInclude Include="Objects.hpp" />
     <ClInclude Include="Map.hpp" />
-    <ClInclude Include="ProjectControl.h" />
+    <ClInclude Include="ProjectControl.hpp" />
     <ClInclude Include="Square.hpp" />
     <ClInclude Include="Utills.hpp" />
     <ClInclude Include="Vector2.hpp" />

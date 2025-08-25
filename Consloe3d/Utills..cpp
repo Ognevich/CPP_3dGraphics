@@ -1,6 +1,7 @@
 #include "Utills.hpp"
 
 void Utills::clearGameScreen() {
+
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
 
