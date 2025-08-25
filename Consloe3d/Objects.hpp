@@ -3,14 +3,14 @@
 #include "config.hpp"
 #include "Vector2.hpp"
 
-class GameObject {
+class GameObjects {
 protected:
 	std::string gradient;
 	float yOffset;
 	std::vector<Vector2> objectCoords;
 
 public:
-	GameObject(const std::string& grad = "@%#*+=-:.", float offset = 1.72f)
+	GameObjects(const std::string& grad = "@%#*+=-:.", float offset = 1.72f)
 		: gradient(grad), yOffset(offset) {
 	}
 

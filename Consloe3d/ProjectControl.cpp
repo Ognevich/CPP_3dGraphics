@@ -1,28 +1,42 @@
 #include "ProjectControl.hpp"
 
-ProjectControl::ProjectControl()
+ProjectControler::ProjectControler()
 {
 }
 
-void ProjectControl::init()
+void ProjectControler::init()
 {
 }
 
-void ProjectControl::run()
+void ProjectControler::run()
 {
     Utills utills;
-    Circle circle(4, 1.72);
-    
+
+    int objectAmount = 32;
+    addRandomCirclesToVector(objectAmount);
+
+
     while (true) {
         Sleep(15);
-
         utills.clearGameScreen();
-        map.updateMap(&circle); 
+        map.initMap();
+        for (int i = 0; i < objectAmount; i++) {
+            map.updateMap(&circleVector[i]);
+        }
         map.showMap();
     }
 
 }
 
-void ProjectControl::shutdown()
+void ProjectControler::shutdown()
 {
+}
+
+void ProjectControler::addRandomCirclesToVector(int circleAmount)
+{
+    for (int i = 0; i < circleAmount; i++) {
+        Circle circle(rand() % 5 + 5, 1.72);
+        circleVector.push_back(circle);
+    }
+
 }

@@ -5,15 +5,19 @@
 #include "Circle.hpp"
 #include "Map.hpp"
 
-class ProjectControl {
+class ProjectControler {
 private:
 	Map map;
+	std::vector<Circle> circleVector;
+
 public:
-	ProjectControl();
+	ProjectControler();
 
 	void init();
 	void run();
 	void shutdown();
+
+	void addRandomCirclesToVector(int circleAmount);
 
 };
 

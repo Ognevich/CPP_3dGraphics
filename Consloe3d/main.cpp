@@ -4,7 +4,7 @@ int main() {
 
 	srand(time(NULL));
 
-	ProjectControl project;
+	ProjectControler project;
 
 	project.init();
 	project.run();

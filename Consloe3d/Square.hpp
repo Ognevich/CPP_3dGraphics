@@ -3,7 +3,7 @@
 #include "Objects.hpp"
 
 
-class Square : protected GameObject {
+class Square : protected GameObjects {
 
 private:
 

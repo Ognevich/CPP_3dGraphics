@@ -14,22 +14,35 @@ public:
 
 	template <typename T>
 	void updateMap(T * object);
+
+    template <typename T>
+    void addObjectToMapArray(T * object);
+
 };
 
 
 template <typename T>
-void Map::updateMap(T* object)
+inline void Map::updateMap(T* object)
 {
-    initMap(); // очистка карти
 
     object->updateObjectPos();
     object->saveObjectCoordToVector();
+    
+    addObjectToMapArray(object);
 
+}
+
+template<typename T>
+inline void Map::addObjectToMapArray(T* object)
+{
     for (auto& coord : object->getObjectCoords()) {
         if (coord.Y >= 0 && coord.Y < MAP_HEIGHT &&
             coord.X >= 0 && coord.X < MAP_WIDTH)
         {
-            map[coord.Y][coord.X] = '#';
+            float dist = object->calculateSquareDistance(coord.X, coord.Y);
+            int radius = object->getRadius();
+
+            map[coord.Y][coord.X] = object->createGradient(radius, dist);
         }
     }
 }

@@ -1,7 +1,7 @@
 #include "Circle.hpp"
 
 Circle::Circle(int radius, float offset)
-    : GameObject("@%#*+=-:.", offset), radius(radius)
+    : GameObjects("@%#*+=-:.", offset), radius(radius)
 {
     isDirection.X = (rand() % 2 == 0) ? -1 : 1;
     isDirection.Y = (rand() % 2 == 0) ? -1 : 1;
@@ -30,14 +30,10 @@ void Circle::saveObjectCoordToVector()
 {
     objectCoords.clear();
 
-    int centerX = MAP_WIDTH / 2 + pos.X;
-    int centerY = MAP_HEIGHT / 2 + pos.Y;
-
     for (int i = 0; i < MAP_HEIGHT; i++) {
         for (int j = 0; j < MAP_WIDTH; j++) {
-            float dx = j - centerX;
-            float dy = (i - centerY) * yOffset;
-            float dist = sqrt(dx * dx + dy * dy);
+
+            float dist = calculateSquareDistance(j,i);
 
             if (dist < radius) {
                 objectCoords.push_back({ j, i });
@@ -71,4 +67,26 @@ bool Circle::isObjectCoordVectorValue(int xPos,int yPos)
 const std::vector<Vector2>& Circle::getObjectCoords() const
 {
     return objectCoords;
+}
+
+float Circle::calculateSquareDistance(int posX, int posY)
+{
+    int centerX = MAP_WIDTH / 2 + getPos().X;
+    int centerY = MAP_HEIGHT / 2 + getPos().Y;
+
+    float dx = posX - centerX;
+    float dy = (posY - centerY) * yOffset;
+    float dist = sqrt(dx * dx + dy * dy);
+
+    return dist;
+}
+
+Vector2 Circle::getPos()
+{
+    return this->pos;
+}
+
+int Circle::getRadius()
+{
+    return this->radius;
 }
