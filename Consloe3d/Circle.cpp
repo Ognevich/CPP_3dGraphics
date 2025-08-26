@@ -12,20 +12,6 @@ Circle::Circle(int radius, float offset)
     saveObjectCoordToVector();
 }
 
-void Circle::updateObjectPos()
-{
-    if (pos.X + radius >= MAP_WIDTH / 2)  isDirection.X = -1;
-    if (pos.X - radius <= -(MAP_WIDTH / 2)) isDirection.X = +1;
-
-    float scaledRadiusY = radius / yOffset;
-
-    if (pos.Y + scaledRadiusY >= MAP_HEIGHT / 2) isDirection.Y = -1;
-    if (pos.Y - scaledRadiusY <= -(MAP_HEIGHT / 2)) isDirection.Y = +1;
-
-    pos.X += isDirection.X;
-    pos.Y += isDirection.Y;
-}
-
 void Circle::saveObjectCoordToVector()
 {
     objectCoords.clear();
@@ -40,6 +26,21 @@ void Circle::saveObjectCoordToVector()
             }
         }
     }
+}
+
+void Circle::setPos(Vector2 pos)
+{
+    this->pos = pos;
+}
+
+void Circle::setIsDirectionX(int isDirection)
+{
+    this->isDirection.X = isDirection;
+}
+
+void Circle::setIsDirectionY(int isDirection)
+{
+    this->isDirection.Y = isDirection;
 }
 
 char Circle::createGradient(int radius, float dist)
@@ -81,9 +82,19 @@ float Circle::calculateSquareDistance(int posX, int posY)
     return dist;
 }
 
+float Circle::getyOffset()
+{
+    return yOffset;
+}
+
 Vector2 Circle::getPos()
 {
     return this->pos;
+}
+
+Vector2 Circle::getIsDirection()
+{
+    return this->isDirection;
 }
 
 int Circle::getRadius()

@@ -16,10 +16,12 @@ public:
 
 	virtual char createGradient(int radius, float dist) = 0;
 	virtual void saveObjectCoordToVector() = 0;
-	virtual void updateObjectPos() = 0;
 	virtual int getObjectCoordVectorLenght() = 0;
 	virtual const std::vector<Vector2>& getObjectCoords() const = 0;
 	virtual bool isObjectCoordVectorValue(int xPos, int yPos) = 0;
+
+	virtual float getyOffset() = 0;
+
 };
 
 #endif

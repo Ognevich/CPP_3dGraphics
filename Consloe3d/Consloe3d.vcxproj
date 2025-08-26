@@ -126,11 +126,13 @@
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="Objects.cpp" />
     <ClCompile Include="ProjectControl.cpp" />
     <ClCompile Include="Utills..cpp" />
     <ClCompile Include="Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Collisions.hpp" />
     <ClInclude Include="config.hpp" />
     <ClInclude Include="Circle.hpp" />
     <ClInclude Include="Objects.hpp" />

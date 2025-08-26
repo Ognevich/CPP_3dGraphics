@@ -28,6 +28,9 @@
     <Filter Include="Source Files\Engine\Controler">
       <UniqueIdentifier>{61a98bb1-8c0b-4dbe-a393-e0cd322c248e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Map">
+      <UniqueIdentifier>{a9b9ae7c-aa7e-44c7-867c-262d921e61c5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -39,14 +42,17 @@
     <ClCompile Include="Vector2.cpp">
       <Filter>Source Files\Core</Filter>
     </ClCompile>
-    <ClCompile Include="Map.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
     <ClCompile Include="Circle.cpp">
       <Filter>Source Files\Engine\Objects</Filter>
     </ClCompile>
     <ClCompile Include="ProjectControl.cpp">
       <Filter>Source Files\Engine\Controler</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>Source Files\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects.cpp">
+      <Filter>Source Files\Engine\Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -55,9 +61,6 @@
     </ClInclude>
     <ClInclude Include="Vector2.hpp">
       <Filter>Source Files\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Map.hpp">
-      <Filter>Source Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Circle.hpp">
       <Filter>Source Files\Engine\Objects</Filter>
@@ -73,6 +76,12 @@
     </ClInclude>
     <ClInclude Include="Square.hpp">
       <Filter>Source Files\Engine\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.hpp">
+      <Filter>Source Files\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Collisions.hpp">
+      <Filter>Source Files\Map</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

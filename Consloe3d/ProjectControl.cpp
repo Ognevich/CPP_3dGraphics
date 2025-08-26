@@ -12,7 +12,7 @@ void ProjectControler::run()
 {
     Utills utills;
 
-    int objectAmount = 32;
+    int objectAmount = 3;
     addRandomCirclesToVector(objectAmount);
 
 

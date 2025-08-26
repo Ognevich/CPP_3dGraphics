@@ -17,15 +17,22 @@ public:
 
 	Circle(int radius, float offset);
 
-	void updateObjectPos() override;
 	void saveObjectCoordToVector() override;
+	void setPos(Vector2 pos);
+	void setIsDirectionX(int isDirection);
+	void setIsDirectionY(int isDirection);
+
 	char createGradient(int radius, float dist) override;
-	int getObjectCoordVectorLenght() override;
-	bool isObjectCoordVectorValue(int xPos, int yPos) override;
+
 	const std::vector<Vector2>& getObjectCoords() const override;
-	float calculateSquareDistance(int posX, int posY);
 	Vector2 getPos();
+	Vector2 getIsDirection();
+
+	bool isObjectCoordVectorValue(int xPos, int yPos) override;
 	int getRadius();
+	int getObjectCoordVectorLenght() override;
+	float calculateSquareDistance(int posX, int posY);
+	float getyOffset() override;
 };
 
 #endif
