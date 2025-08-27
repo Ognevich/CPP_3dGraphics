@@ -6,7 +6,7 @@
 class Collisions {
 public:
     template <typename T>
-    bool checkObjectWallCollision(T* object);
+    bool checkObjectCollision(T* object, char(&map)[MAP_HEIGHT][MAP_WIDTH]);
 
     template <typename T>
     bool checkObjectYWallTopCollision(T* object);
@@ -22,25 +22,29 @@ public:
 };
 
 template<typename T>
-inline bool Collisions::checkObjectWallCollision(T* object)
+inline bool Collisions::checkObjectCollision(T* object, char(&map)[MAP_HEIGHT][MAP_WIDTH])
 {
-    return checkObjectYWallTopCollision(object) ||
-        checkObjectYWallBottomCollision(object) ||
-        checkObjectXWallLeftCollision(object) ||
-        checkObjectXWallRightCollision(object);
-}
+    const auto& objectCoords = object->getObjectCoords();
+
+    for (const auto& coord : objectCoords) {
+        if (map[coord.Y][coord.X] != ' ') {
+            return true; 
+        }
+    }
+    return false; 
+} 
 
 template<typename T>
 inline bool Collisions::checkObjectYWallTopCollision(T* object)
 {
-    float scaledRadiusY = object->getRadius() / object->getyOffset();
+    float scaledRadiusY = object->getRadius() / object->getYOffset();
     return (object->getPos().Y + scaledRadiusY >= MAP_HEIGHT / 2);
 }
 
 template<typename T>
 inline bool Collisions::checkObjectYWallBottomCollision(T* object)
 {
-    float scaledRadiusY = object->getRadius() / object->getyOffset();
+    float scaledRadiusY = object->getRadius() / object->getYOffset();
     return (object->getPos().Y - scaledRadiusY <= -(MAP_HEIGHT / 2));
 }
 

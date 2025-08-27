@@ -1,13 +1,25 @@
 #include "Circle.hpp"
+#include <cmath>
+#include <algorithm>
+#include <random>
 
-Circle::Circle(int radius, float offset)
-    : GameObjects("@%#*+=-:.", offset), radius(radius)
+Circle::Circle(int radius, float offset, const std::string& grad)
+    : GameObjects(grad, offset), radius(radius)
 {
-    isDirection.X = (rand() % 2 == 0) ? -1 : 1;
-    isDirection.Y = (rand() % 2 == 0) ? -1 : 1;
+    static std::random_device rd;
+    static std::mt19937 gen(rd());
 
-    pos.X = (rand() % (MAP_WIDTH - 2 * radius)) - (MAP_WIDTH / 2 - radius);
-    pos.Y = (rand() % (MAP_HEIGHT - 2 * (int)(radius / yOffset))) - (MAP_HEIGHT / 2 - (int)(radius / yOffset));
+    std::uniform_int_distribution<int> dirDist(0, 1);
+    Direction.X = dirDist(gen) == 0 ? -1 : 1;
+    Direction.Y = dirDist(gen) == 0 ? -1 : 1;
+
+    std::uniform_int_distribution<int> xDist(-(MAP_WIDTH / 2 - radius),
+        (MAP_WIDTH / 2 - radius));
+    std::uniform_int_distribution<int> yDist(-(MAP_HEIGHT / 2 - (int)(radius / yOffset)),
+        (MAP_HEIGHT / 2 - (int)(radius / yOffset)));
+
+    pos.X = xDist(gen);
+    pos.Y = yDist(gen);
 
     saveObjectCoordToVector();
 }
@@ -18,9 +30,7 @@ void Circle::saveObjectCoordToVector()
 
     for (int i = 0; i < MAP_HEIGHT; i++) {
         for (int j = 0; j < MAP_WIDTH; j++) {
-
-            float dist = calculateSquareDistance(j,i);
-
+            float dist = calculateSquareDistance(j, i);
             if (dist < radius) {
                 objectCoords.push_back({ j, i });
             }
@@ -28,76 +38,46 @@ void Circle::saveObjectCoordToVector()
     }
 }
 
-void Circle::setPos(Vector2 pos)
-{
+void Circle::setPos(Vector2 pos) {
     this->pos = pos;
 }
 
-void Circle::setIsDirectionX(int isDirection)
-{
-    this->isDirection.X = isDirection;
+Vector2 Circle::getPos() const {
+    return this->pos;
 }
 
-void Circle::setIsDirectionY(int isDirection)
-{
-    this->isDirection.Y = isDirection;
+void Circle::invertDirectionX() {
+    this->Direction.X = -this->Direction.X;
+}
+
+void Circle::invertDirectionY() {
+    this->Direction.Y = -this->Direction.Y;
 }
 
 char Circle::createGradient(int radius, float dist)
 {
     float norm = dist / radius;
-    int idx = (int)(norm * (gradient.size() - 1));
+    int idx = static_cast<int>(norm * (gradient.size() - 1));
+
+    idx = std::clamp(idx, 0, static_cast<int>(gradient.size() - 1));
     return gradient[idx];
 }
 
-int Circle::getObjectCoordVectorLenght()
-{
-    return objectCoords.size();
+Vector2 Circle::getDirection() const {
+    return this->Direction;
 }
 
-bool Circle::isObjectCoordVectorValue(int xPos,int yPos)
-{
-    for (int k = 0; k < objectCoords.size(); k++) {
-        if (objectCoords[k].X == xPos && objectCoords[k].Y == yPos) {
-            return true;
-        }
-    }
-    return false;
+int Circle::getRadius() const {
+    return this->radius;
 }
 
-const std::vector<Vector2>& Circle::getObjectCoords() const
+float Circle::calculateSquareDistance(int posX, int posY) const
 {
-    return objectCoords;
-}
-
-float Circle::calculateSquareDistance(int posX, int posY)
-{
-    int centerX = MAP_WIDTH / 2 + getPos().X;
-    int centerY = MAP_HEIGHT / 2 + getPos().Y;
+    int centerX = MAP_WIDTH / 2 + pos.X;
+    int centerY = MAP_HEIGHT / 2 + pos.Y;
 
     float dx = posX - centerX;
     float dy = (posY - centerY) * yOffset;
-    float dist = sqrt(dx * dx + dy * dy);
 
-    return dist;
-}
-
-float Circle::getyOffset()
-{
-    return yOffset;
-}
-
-Vector2 Circle::getPos()
-{
-    return this->pos;
-}
-
-Vector2 Circle::getIsDirection()
-{
-    return this->isDirection;
-}
-
-int Circle::getRadius()
-{
-    return this->radius;
+    return std::sqrt(dx * dx + dy * dy);
 }

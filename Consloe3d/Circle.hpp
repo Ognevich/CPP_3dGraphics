@@ -1,38 +1,32 @@
 #ifndef CIRCLE_H
 #define CIRCLE_H
+
 #include "Objects.hpp"
 #include "config.hpp"
 #include "Vector2.hpp"
 #include <vector>
 
-class Circle : protected GameObjects {
+class Circle : public GameObjects {
 private:
-	int radius;
-	Vector2 bounciness;
-	Vector2 pos;
-	Vector2 velocity;
-	Vector2 isDirection;
+    int radius;
+    Vector2 pos;
 
 public:
+    Circle(int radius, float offset, const std::string& grad = "@%#*+=-:.");
 
-	Circle(int radius, float offset);
+    void saveObjectCoordToVector() override;
 
-	void saveObjectCoordToVector() override;
-	void setPos(Vector2 pos);
-	void setIsDirectionX(int isDirection);
-	void setIsDirectionY(int isDirection);
+    void setPos(Vector2 pos);
+    Vector2 getPos() const;
 
-	char createGradient(int radius, float dist) override;
+    void invertDirectionX() override;
+    void invertDirectionY() override;
 
-	const std::vector<Vector2>& getObjectCoords() const override;
-	Vector2 getPos();
-	Vector2 getIsDirection();
+    char createGradient(int radius, float dist) override;
+    Vector2 getDirection() const override;
 
-	bool isObjectCoordVectorValue(int xPos, int yPos) override;
-	int getRadius();
-	int getObjectCoordVectorLenght() override;
-	float calculateSquareDistance(int posX, int posY);
-	float getyOffset() override;
+    int getRadius() const;
+    float calculateSquareDistance(int posX, int posY) const;
 };
 
-#endif
+#endif // CIRCLE_H
