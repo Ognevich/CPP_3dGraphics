@@ -28,7 +28,7 @@ public:
     template <typename T>
     void updateObjectDirection(T* object);
 
-    void addSquareToMapArray();
+    void addSquareToMapArray(int xPos, int yPos);
 };
 
 
@@ -77,8 +77,8 @@ inline void Map::updateObjectDirection(T* object)
     if (collisions.checkObjectYWallBottomCollision(object)) { object->invertDirectionY(); }
 
     if (collisions.checkObjectCollision(object, map)) {
-        object->setDirectionX(-1);
-        object->setDirectionY(-1);
+        object->invertDirectionY();
+        object->invertDirectionX();
     }
 }
 

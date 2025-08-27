@@ -55,12 +55,3 @@ float Circle::calculateSquareDistance(int posX, int posY) const
     float dy = (posY - centerY) * yOffset;
     return std::sqrt(dx * dx + dy * dy);
 }
-
-Vector2 Circle::getFuturePos()
-{
-    Vector2 futurePos;
-
-    futurePos.X = pos.X + Direction.X;
-    futurePos.Y = pos.Y + Direction.Y;
-    return futurePos;
-}

@@ -17,7 +17,7 @@ public:
     int getRadius() const { return radius; }
     float calculateSquareDistance(int posX, int posY) const;
 
-    Vector2 getFuturePos() override;
+
 };
 
 #endif

@@ -45,7 +45,15 @@ public:
     virtual Vector2 getDirection() const { return Direction; }
 
     Vector2 getPos() const { return pos; }
-    virtual Vector2 getFuturePos() = 0;
+
+    std::vector<Vector2> getFutureCoord() const {
+        std::vector<Vector2> future;
+        for (auto& coord : objectCoords) {
+            future.push_back({ coord.X + Direction.X, coord.Y + Direction.Y });
+        }
+        return future;
+    }
+
     void setPos(Vector2 p) { pos = p; }
 };
 

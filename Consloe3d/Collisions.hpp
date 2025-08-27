@@ -1,6 +1,7 @@
 #ifndef COLLISIONS_HPP
 #define COLLISIONS_HPP
 #include <iostream>
+#include <Windows.h>
 #include "config.hpp"
 
 class Collisions {
@@ -24,15 +25,12 @@ public:
 template<typename T>
 inline bool Collisions::checkObjectCollision(T* object, char(&map)[MAP_HEIGHT][MAP_WIDTH])
 {
-    const auto& objectCoords = object->getObjectCoords();
-
-    for (const auto& coord : objectCoords) {
-        if (map[coord.Y][coord.X] != ' ') {
-            return true; 
-        }
+    auto futureCoords = object->getFutureCoord();
+    for (const auto& coord : futureCoords) {
+        if (map[coord.Y][coord.X] != ' ') return true;
     }
-    return false; 
-} 
+    return false;
+}
 
 template<typename T>
 inline bool Collisions::checkObjectYWallTopCollision(T* object)
