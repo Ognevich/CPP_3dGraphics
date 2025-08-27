@@ -12,17 +12,17 @@ void ProjectControler::run()
 {
     Utills utills;
 
-    int objectAmount = 3;
+    int objectAmount = 1;
     addRandomCirclesToVector(objectAmount);
-
-
     while (true) {
         Sleep(15);
         utills.clearGameScreen();
         map.initMap();
+        map.addSquareToMapArray();
         for (int i = 0; i < objectAmount; i++) {
             map.updateMap(&circleVector[i]);
         }
+
         map.showMap();
     }
 

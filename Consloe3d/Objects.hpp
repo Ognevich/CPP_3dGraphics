@@ -12,15 +12,16 @@ protected:
     float yOffset;
     std::vector<Vector2> objectCoords;
     Vector2 Direction;
+    Vector2 pos;
 
 public:
     GameObjects(const std::string& grad = "@%#*+=-:.", float offset = 1.72f)
-        : gradient(grad), yOffset(offset) {
+        : gradient(grad), yOffset(offset), pos{ 0,0 }, Direction{ 1,1 } {
     }
 
     virtual ~GameObjects() = default;
 
-    virtual char createGradient(int radius, float dist) = 0;
+    virtual char createGradient(float dist) = 0;
     virtual void saveObjectCoordToVector() = 0;
 
     virtual int getObjectCoordVectorLength() const {
@@ -33,9 +34,19 @@ public:
 
     virtual float getYOffset() const { return yOffset; }
 
-    virtual void invertDirectionX() = 0;
-    virtual void invertDirectionY() = 0;
-    virtual Vector2 getDirection() const = 0;
+    virtual void invertDirectionX() { Direction.X = -Direction.X; }
+    virtual void invertDirectionY() { Direction.Y = -Direction.Y; }
+    
+    // TEST, DELETE AFTER TESTING
+    virtual void setDirectionX(int newDir) { Direction.X = newDir; }
+    virtual void setDirectionY(int newDir) { Direction.Y = newDir; }
+    // TEST
+
+    virtual Vector2 getDirection() const { return Direction; }
+
+    Vector2 getPos() const { return pos; }
+    virtual Vector2 getFuturePos() = 0;
+    void setPos(Vector2 p) { pos = p; }
 };
 
-#endif // OBJECTS_H
+#endif

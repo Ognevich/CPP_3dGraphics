@@ -27,14 +27,16 @@ public:
 
     template <typename T>
     void updateObjectDirection(T* object);
+
+    void addSquareToMapArray();
 };
 
 
 template <typename T>
 inline void Map::updateMap(T* object)
 {
-    updateObjectDirection(object);
     updateObjectPos(object);
+    updateObjectDirection(object);
     object->saveObjectCoordToVector();
     addObjectToMapArray(object);
 }
@@ -47,9 +49,8 @@ inline void Map::addObjectToMapArray(T* object)
             coord.X >= 0 && coord.X < MAP_WIDTH)
         {
             float dist = object->calculateSquareDistance(coord.X, coord.Y);
-            int radius = object->getRadius();
 
-            map[coord.Y][coord.X] = object->createGradient(radius, dist);
+            map[coord.Y][coord.X] = object->createGradient(dist);
         }
     }
 }
@@ -68,16 +69,17 @@ inline void Map::updateObjectPos(T* object)
 template<typename T>
 inline void Map::updateObjectDirection(T* object)
 {
+
     if (collisions.checkObjectXWallRightCollision(object)) { object->invertDirectionX(); }
     if (collisions.checkObjectXWallLeftCollision(object)) { object->invertDirectionX(); }
 
     if (collisions.checkObjectYWallTopCollision(object)) { object->invertDirectionY(); }
     if (collisions.checkObjectYWallBottomCollision(object)) { object->invertDirectionY(); }
 
-     if (collisions.checkObjectCollision(object, map)) {
-         object->invertDirectionX();
-         object->invertDirectionY();
-     }
+    if (collisions.checkObjectCollision(object, map)) {
+        object->setDirectionX(-1);
+        object->setDirectionY(-1);
+    }
 }
 
 #endif 

@@ -3,6 +3,7 @@
 #include "config.hpp"
 #include "Utills.hpp"
 #include "Circle.hpp"
+#include "Square.hpp"
 #include "Map.hpp"
 
 class ProjectControler {
