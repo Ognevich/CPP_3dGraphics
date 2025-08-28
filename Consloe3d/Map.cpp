@@ -34,7 +34,7 @@ char(&Map::getMap())[MAP_HEIGHT][MAP_WIDTH]{
 void Map::addSquareToMapArray(int xPos, int yPos)
 {
     for (int i = yPos-5; i < yPos+5;i++) {
-        for (int j = xPos-10; j < xPos + 10; j++) {
+        for (int j = xPos-5; j < xPos + 5; j++) {
             map[i][j] = '#';
         }
     }

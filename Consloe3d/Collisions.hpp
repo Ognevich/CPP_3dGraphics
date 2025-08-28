@@ -6,8 +6,12 @@
 
 class Collisions {
 public:
+
     template <typename T>
-    bool checkObjectCollision(T* object, char(&map)[MAP_HEIGHT][MAP_WIDTH]);
+    bool checkObjectXCollision(T* object, char(&map)[MAP_HEIGHT][MAP_WIDTH]);
+
+    template <typename T>
+    bool checkObjectYCollision(T* object, char(&map)[MAP_HEIGHT][MAP_WIDTH]);
 
     template <typename T>
     bool checkObjectYWallTopCollision(T* object);
@@ -26,10 +30,21 @@ public:
 
 };
 
+
 template<typename T>
-inline bool Collisions::checkObjectCollision(T* object, char(&map)[MAP_HEIGHT][MAP_WIDTH])
+inline bool Collisions::checkObjectXCollision(T* object, char(&map)[MAP_HEIGHT][MAP_WIDTH])
 {
-    auto futureCoords = object->getFutureCoord();
+    auto futureCoords = object->getFutureCoordVectorX();
+    for (const auto& coord : futureCoords) {
+        if (map[coord.Y][coord.X] != ' ') return true;
+    }
+    return false;
+}
+
+template<typename T>
+inline bool Collisions::checkObjectYCollision(T* object, char(&map)[MAP_HEIGHT][MAP_WIDTH])
+{
+    auto futureCoords = object->getFutureCoordVectorY();
     for (const auto& coord : futureCoords) {
         if (map[coord.Y][coord.X] != ' ') return true;
     }

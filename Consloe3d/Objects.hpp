@@ -15,46 +15,30 @@ protected:
     Vector2 pos;
 
 public:
-    GameObjects(const std::string& grad = "@%#*+=-:.", float offset = 1.72f)
-        : gradient(grad), yOffset(offset), pos{ 0,0 }, Direction{ 1,1 } {
-    }
+    GameObjects(const std::string& grad = "@%#*+=-:.", float offset = 1.72f);
 
     virtual ~GameObjects() = default;
 
     virtual char createGradient(float dist) = 0;
     virtual void saveObjectCoordToVector() = 0;
 
-    virtual int getObjectCoordVectorLength() const {
-        return static_cast<int>(objectCoords.size());
-    }
+    virtual int getObjectCoordVectorLength() const;
 
-    virtual const std::vector<Vector2>& getObjectCoords() const {
-        return objectCoords;
-    }
+    virtual const std::vector<Vector2>& getObjectCoords();
 
-    virtual float getYOffset() const { return yOffset; }
+    virtual float getYOffset() const;
 
-    virtual void invertDirectionX() { Direction.X = -Direction.X; }
-    virtual void invertDirectionY() { Direction.Y = -Direction.Y; }
-    
-    // TEST, DELETE AFTER TESTING
-    virtual void setDirectionX(int newDir) { Direction.X = newDir; }
-    virtual void setDirectionY(int newDir) { Direction.Y = newDir; }
-    // TEST
+    virtual void invertDirectionX();
+    virtual void invertDirectionY();
 
-    virtual Vector2 getDirection() const { return Direction; }
+    virtual Vector2 getDirection() const;
 
-    Vector2 getPos() const { return pos; }
+    Vector2 getPos() const;
 
-    std::vector<Vector2> getFutureCoord() const {
-        std::vector<Vector2> future;
-        for (auto& coord : objectCoords) {
-            future.push_back({ coord.X + Direction.X, coord.Y + Direction.Y });
-        }
-        return future;
-    }
+    std::vector<Vector2> getFutureCoord() const;
+    std::vector<Vector2> getFutureCoordVectorX() const;
+    std::vector<Vector2> getFutureCoordVectorY() const;
 
-    void setPos(Vector2 p) { pos = p; }
+    void setPos(Vector2 p);
 };
-
 #endif

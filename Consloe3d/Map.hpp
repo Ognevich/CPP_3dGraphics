@@ -36,12 +36,19 @@ public:
 template <typename T>
 inline void Map::updateMap(T* object)
 {
+    for (auto& coord : object->getObjectCoords()) {
+        if (coord.Y >= 0 && coord.Y < MAP_HEIGHT &&
+            coord.X >= 0 && coord.X < MAP_WIDTH)
+        {
+            map[coord.Y][coord.X] = ' ';
+        }
+    }
+
     updateObjectPos(object);
     updateObjectDirection(object);
     object->saveObjectCoordToVector();
     addObjectToMapArray(object);
 }
-
 template<typename T>
 inline void Map::addObjectToMapArray(T* object)
 {
@@ -71,16 +78,16 @@ template<typename T>
 inline void Map::updateObjectDirection(T* object)
 {
 
-    if (collisions.checkObjectXWallRightCollision(object)) { object->invertDirectionX(); }
-    if (collisions.checkObjectXWallLeftCollision(object)) { object->invertDirectionX(); }
+    if (collisions.checkObjectXWallRightCollision(object))  { object->invertDirectionX(); }
+    if (collisions.checkObjectXWallLeftCollision(object))   { object->invertDirectionX(); }
 
-    if (collisions.checkObjectYWallTopCollision(object)) { object->invertDirectionY(); }
+    if (collisions.checkObjectYWallTopCollision(object))    { object->invertDirectionY(); }
     if (collisions.checkObjectYWallBottomCollision(object)) { object->invertDirectionY(); }
 
-    if (collisions.checkObjectCollision(object, map)) {
-        object->invertDirectionY();
-        object->invertDirectionX();
-    }
+    if (collisions.checkObjectXCollision(object, map))      { object->invertDirectionX(); }
+
+    if (collisions.checkObjectYCollision(object, map))      { object->invertDirectionY(); }
+
 }
 
 #endif 

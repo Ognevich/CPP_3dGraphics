@@ -14,7 +14,7 @@ void ProjectControler::run()
 {
     Utills utills;
 
-    int objectAmount = 5;
+    int objectAmount = 10;
     addRandomCirclesToVector(objectAmount);
     while (true) {
         Sleep(15);
