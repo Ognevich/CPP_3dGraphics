@@ -27,10 +27,14 @@ void Map::initMap()
 	}
 }
 
+char(&Map::getMap())[MAP_HEIGHT][MAP_WIDTH]{
+    return map;
+}
+
 void Map::addSquareToMapArray(int xPos, int yPos)
 {
-    for (int i = xPos-5; i < yPos+5;i++) {
-        for (int j = yPos-5; j < xPos + 5; j++) {
+    for (int i = yPos-5; i < yPos+5;i++) {
+        for (int j = xPos-10; j < xPos + 10; j++) {
             map[i][j] = '#';
         }
     }

@@ -15,6 +15,7 @@ public:
 
     void showMap();
     void initMap();
+    char(&getMap())[MAP_HEIGHT][MAP_WIDTH];
 
     template <typename T>
     void updateMap(T* object);

@@ -4,13 +4,15 @@
 #include "Utills.hpp"
 #include "Circle.hpp"
 #include "Square.hpp"
+#include "Collisions.hpp"
 #include "Map.hpp"
 
 class ProjectControler {
 private:
 	Map map;
+	Collisions collisions;
 	std::vector<Circle> circleVector;
-
+	
 public:
 	ProjectControler();
 

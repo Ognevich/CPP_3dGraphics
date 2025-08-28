@@ -20,6 +20,10 @@ public:
 
     template <typename T>
     bool checkObjectXWallRightCollision(T* object);
+
+    template <typename T>
+    bool checkObjectSpawnCollision(T* object, char(&map)[MAP_HEIGHT][MAP_WIDTH]);
+
 };
 
 template<typename T>
@@ -50,6 +54,16 @@ template<typename T>
 inline bool Collisions::checkObjectXWallRightCollision(T* object)
 {
     return (object->getPos().X + object->getRadius() >= MAP_WIDTH / 2);
+}
+
+template<typename T>
+inline bool Collisions::checkObjectSpawnCollision(T* object, char(&map)[MAP_HEIGHT][MAP_WIDTH])
+{
+    auto objectCoord = object->getObjectCoords();
+
+    for (const auto& coord : objectCoord) 
+        if (map[coord.Y][coord.X] != ' ') return true;
+    return false;
 }
 
 template<typename T>
