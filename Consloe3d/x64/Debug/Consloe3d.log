@@ -1,5 +1,88 @@
-﻿  ProjectControl.cpp
-D:\my_projects\c++\Consloe3d\Consloe3d\ProjectControl.cpp(41,39): warning C4305: 'argument': truncation from 'double' to 'float'
+﻿  Map.cpp
+D:\my_projects\c++\Consloe3d\Consloe3d\Collisions.hpp(93,14): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'Map.cpp')
+  
+D:\my_projects\c++\Consloe3d\Consloe3d\Collisions.hpp(94,14): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'Map.cpp')
+  
+D:\my_projects\c++\Consloe3d\Consloe3d\Collisions.hpp(96,21): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'Map.cpp')
+  
+D:\my_projects\c++\Consloe3d\Consloe3d\Map.cpp(20,28): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+D:\my_projects\c++\Consloe3d\Consloe3d\Map.cpp(21,28): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+D:\my_projects\c++\Consloe3d\Consloe3d\Map.cpp(22,28): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+D:\my_projects\c++\Consloe3d\Consloe3d\Map.cpp(23,28): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+D:\my_projects\c++\Consloe3d\Consloe3d\Vector2.hpp(27,14): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'Map.cpp')
+      D:\my_projects\c++\Consloe3d\Consloe3d\Vector2.hpp(27,14):
+      the template instantiation context (the oldest one first) is
+          D:\my_projects\c++\Consloe3d\Consloe3d\Map.hpp(115,39):
+          see reference to function template instantiation 'float Vector2::distanceBetweenCenters<_Ty,_Ty>(const T1 &,const T2 &)' being compiled
+          with
+          [
+              _Ty=Circle,
+              T1=Circle,
+              T2=Circle
+          ]
+  
+D:\my_projects\c++\Consloe3d\Consloe3d\Vector2.hpp(28,14): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'Map.cpp')
+  
+  ProjectControl.cpp
+D:\my_projects\c++\Consloe3d\Consloe3d\Collisions.hpp(93,14): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'ProjectControl.cpp')
+  
+D:\my_projects\c++\Consloe3d\Consloe3d\Collisions.hpp(94,14): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'ProjectControl.cpp')
+  
+D:\my_projects\c++\Consloe3d\Consloe3d\Collisions.hpp(96,21): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'ProjectControl.cpp')
+  
+D:\my_projects\c++\Consloe3d\Consloe3d\ProjectControl.cpp(42,39): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\my_projects\c++\Consloe3d\Consloe3d\Vector2.hpp(27,14): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'ProjectControl.cpp')
+      D:\my_projects\c++\Consloe3d\Consloe3d\Vector2.hpp(27,14):
+      the template instantiation context (the oldest one first) is
+          D:\my_projects\c++\Consloe3d\Consloe3d\Map.hpp(115,39):
+          see reference to function template instantiation 'float Vector2::distanceBetweenCenters<_Ty,_Ty>(const T1 &,const T2 &)' being compiled
+          with
+          [
+              _Ty=Circle,
+              T1=Circle,
+              T2=Circle
+          ]
+  
+D:\my_projects\c++\Consloe3d\Consloe3d\Vector2.hpp(28,14): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'ProjectControl.cpp')
+  
+  main.cpp
+D:\my_projects\c++\Consloe3d\Consloe3d\Collisions.hpp(93,14): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+D:\my_projects\c++\Consloe3d\Consloe3d\Collisions.hpp(94,14): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+D:\my_projects\c++\Consloe3d\Consloe3d\Collisions.hpp(96,21): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+D:\my_projects\c++\Consloe3d\Consloe3d\main.cpp(5,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\my_projects\c++\Consloe3d\Consloe3d\Vector2.hpp(27,14): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+      D:\my_projects\c++\Consloe3d\Consloe3d\Vector2.hpp(27,14):
+      the template instantiation context (the oldest one first) is
+          D:\my_projects\c++\Consloe3d\Consloe3d\Map.hpp(115,39):
+          see reference to function template instantiation 'float Vector2::distanceBetweenCenters<_Ty,_Ty>(const T1 &,const T2 &)' being compiled
+          with
+          [
+              _Ty=Circle,
+              T1=Circle,
+              T2=Circle
+          ]
+  
+D:\my_projects\c++\Consloe3d\Consloe3d\Vector2.hpp(28,14): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+  Generating Code...
   Consloe3d.vcxproj -> D:\my_projects\c++\Consloe3d\x64\Debug\Consloe3d.exe
   'pwsh.exe' is not recognized as an internal or external command,
   operable program or batch file.

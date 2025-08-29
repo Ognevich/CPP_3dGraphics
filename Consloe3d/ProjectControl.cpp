@@ -14,21 +14,22 @@ void ProjectControler::run()
 {
     Utills utills;
 
-    int objectAmount = 10;
+    int objectAmount =3;
     addRandomCirclesToVector(objectAmount);
     while (true) {
         Sleep(15);
         utills.clearGameScreen();
         map.initMap();
-        map.addSquareToMapArray(60,15);
-        for (int i = 0; i < objectAmount; i++) {
+        //map.addSquareToMapArray(60, 15);
 
+        map.handleCirclesCollisions(circleVector);
+
+        for (int i = 0; i < objectAmount; i++) {
             map.updateMap(&circleVector[i]);
         }
 
         map.showMap();
     }
-
 }
 
 void ProjectControler::shutdown()
